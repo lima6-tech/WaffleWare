@@ -1,3 +1,62 @@
 [gd_scene format=3 uid="uid://crdh63lf6rrww"]
 
+[ext_resource type="Texture2D" uid="uid://6po01qq80qhj" path="res://assets/Grid.png" id="1_6jsh8"]
+[ext_resource type="Script" uid="uid://d102jwuic7mv3" path="res://scripts/title_scene.gd" id="1_bq8jb"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_l8sac"]
+[ext_resource type="Texture2D" uid="uid://bwr0iot4cfi40" path="res://icon.svg" id="3_bq8jb"]
+[ext_resource type="Texture2D" uid="uid://8uesam1jk1lb" path="res://assets/Placeholders.png" id="4_l5n7b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8xmt"]
+font = ExtResource("2_l8sac")
+font_size = 64
+
 [node name="TitleScene" type="Node2D" unique_id=855926715]
+script = ExtResource("1_bq8jb")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1146942013]
+z_index = -1
+repeat_size = Vector2(128, 64)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D" unique_id=973458394]
+z_index = -1
+texture_repeat = 2
+scale = Vector2(2, 2)
+texture = ExtResource("1_6jsh8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
+
+[node name="Title" type="Label" parent="." unique_id=416980306]
+offset_left = -320.0
+offset_top = -64.0
+offset_right = 304.0
+text = "WaffleWare"
+label_settings = SubResource("LabelSettings_s8xmt")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1886699270]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="VBox" unique_id=1004468075]
+layout_mode = 2
+texture_normal = ExtResource("3_bq8jb")
+texture_pressed = ExtResource("4_l5n7b")
+
+[node name="Settings" type="TextureButton" parent="VBox" unique_id=25737484]
+layout_mode = 2
+texture_normal = ExtResource("3_bq8jb")
+texture_pressed = ExtResource("4_l5n7b")
+
+[node name="Quit" type="TextureButton" parent="VBox" unique_id=793002803]
+layout_mode = 2
+texture_normal = ExtResource("3_bq8jb")
+texture_pressed = ExtResource("4_l5n7b")
+
+[connection signal="pressed" from="VBox/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBox/Quit" to="." method="_on_quit_pressed"]
