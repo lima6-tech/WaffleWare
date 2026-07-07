@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://d102jwuic7mv3" path="res://scripts/title_scene.gd" id="1_bq8jb"]
 [ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_bq8jb"]
 [ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_l8sac"]
-[ext_resource type="LabelSettings" uid="uid://cl5m4b4ho54l7" path="res://settings/new_label_settings.tres" id="3_l5n7b"]
 [ext_resource type="Texture2D" uid="uid://dvouoihf5ljdm" path="res://assets/sprites/Panel.png" id="3_s8xmt"]
 [ext_resource type="Texture2D" uid="uid://cxcfn3npc7o68" path="res://assets/sprites/WaffleBig.png" id="5_bq8jb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bq8jb"]
+font = ExtResource("2_l8sac")
+font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5n7b"]
 atlas = ExtResource("5_bq8jb")
@@ -81,7 +84,7 @@ offset_top = -55.0
 offset_right = 80.0
 offset_bottom = -39.0
 text = "WaffleWare"
-label_settings = ExtResource("3_l5n7b")
+label_settings = SubResource("LabelSettings_bq8jb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -136,7 +139,7 @@ position = Vector2(0, 88)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1ot34")
 autoplay = "default"
-frame_progress = 0.092063576
+frame_progress = 0.8148311
 
 [connection signal="pressed" from="VBox/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBox/Button2" to="." method="_on_settings_pressed"]
