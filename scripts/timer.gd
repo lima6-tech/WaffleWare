@@ -1,19 +1,19 @@
 extends Node2D
 
 @onready var timer = $Label
-var time = 5
+
+var time: float = 0.0
+var timer_active: bool = false
+
+func start_timer(start_time: float) -> void:
+	time = start_time
+	timer_active = true
 
 func _process(delta: float) -> void:
-	timer.text = str(snapped(time, 0.10)) # this makes names easier
+	if timer_active and time > 0.0:
+		time -= delta
+		timer.text = str(snapped(time, 0.01)) # rounds the number
 
-func Timer(start_time: float): 
-	time = start_time
-	
-	while time > 0.0: 
-		await wait(0.10)
-		time = time - 0.10
-
-	return
-
-func wait(seconds: float) -> void: 
-	await get_tree().create_timer(seconds).timeout 
+		if time <= 0.0:
+			time = 0.0
+			timer_active = false

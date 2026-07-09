@@ -139,7 +139,7 @@ position = Vector2(0, 88)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1ot34")
 autoplay = "default"
-frame_progress = 0.8148311
+frame_progress = 0.49822187
 
 [connection signal="pressed" from="VBox/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBox/Button2" to="." method="_on_settings_pressed"]

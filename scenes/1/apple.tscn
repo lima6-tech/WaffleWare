@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ci0omxlglwpgw"]
+
+[ext_resource type="Texture2D" uid="uid://g1evtwj47sda" path="res://assets/sprites/Apple.png" id="1_h071m"]
+[ext_resource type="Script" uid="uid://5165xvxtn3rb" path="res://scripts/minigame_1/apple.gd" id="1_m260f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1cg4"]
+atlas = ExtResource("1_h071m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5od"]
+atlas = ExtResource("1_h071m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpvfh"]
+atlas = ExtResource("1_h071m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r58ir"]
+atlas = ExtResource("1_h071m")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1digs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1cg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpvfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r58ir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxfl2"]
+size = Vector2(16, 16)
+
+[node name="Apple" type="Node2D" unique_id=1036866821 groups=["apples"]]
+script = ExtResource("1_m260f")
+metadata/_edit_group_ = true
+
+[node name="Apple" type="AnimatedSprite2D" parent="." unique_id=38529829]
+position = Vector2(0, 0.43043637)
+sprite_frames = SubResource("SpriteFrames_1digs")
+autoplay = "default"
+
+[node name="Area" type="Area2D" parent="." unique_id=1308624471]
+
+[node name="Area" type="CollisionShape2D" parent="Area" unique_id=1462011703]
+shape = SubResource("RectangleShape2D_oxfl2")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

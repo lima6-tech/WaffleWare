@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://baqx1eirt654f"]
+
+[ext_resource type="Script" uid="uid://btkjf5sgbbnwp" path="res://scripts/minigame_1/minigame_1.gd" id="1_f1oqe"]
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_lmjug"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_og05i"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="2_lmjug"]
+[ext_resource type="PackedScene" uid="uid://b5pygk6jk3lcv" path="res://scenes/1/platform_player.tscn" id="3_v5ebm"]
+[ext_resource type="PackedScene" uid="uid://ci0omxlglwpgw" path="res://scenes/1/apple.tscn" id="4_8ucrx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fa05o"]
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j1cg4"]
+normal = Vector2(0.9999354, -0.011362903)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vc5od"]
+normal = Vector2(-1, 0)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xpvfh"]
+normal = Vector2(0, 1)
+distance = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r58ir"]
+size = Vector2(80, 8)
+
+[node name="Minigame_1" type="Node2D" unique_id=229143102]
+script = ExtResource("1_f1oqe")
+
+[node name="Parallax" type="Parallax2D" parent="." unique_id=1223600384]
+z_index = -1
+scroll_offset = Vector2(-29, -12)
+repeat_size = Vector2(30, 20)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax" unique_id=2039036924]
+z_index = -1
+texture_repeat = 2
+position = Vector2(4, -24)
+texture = ExtResource("1_lmjug")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 20)
+
+[node name="Screen" type="NinePatchRect" parent="." unique_id=1304814779]
+offset_left = -144.0
+offset_top = -120.0
+offset_right = 136.0
+offset_bottom = 16.0
+texture = ExtResource("1_og05i")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Boundaries" type="StaticBody2D" parent="Screen" unique_id=1342530402]
+position = Vector2(144, -14)
+
+[node name="Bottom" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=200939804]
+position = Vector2(0, 140)
+shape = SubResource("WorldBoundaryShape2D_fa05o")
+
+[node name="Left" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1768360860]
+position = Vector2(-134, 86)
+shape = SubResource("WorldBoundaryShape2D_j1cg4")
+
+[node name="Right" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1413087915]
+position = Vector2(126, 86)
+shape = SubResource("WorldBoundaryShape2D_vc5od")
+
+[node name="Top" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1641699897]
+shape = SubResource("WorldBoundaryShape2D_xpvfh")
+
+[node name="Level" type="Node2D" parent="." unique_id=1388051223]
+position = Vector2(16, 8)
+
+[node name="PlatformPlayer" parent="Level" unique_id=811194918 instance=ExtResource("3_v5ebm")]
+position = Vector2(-128, 0)
+
+[node name="Platform" type="StaticBody2D" parent="Level" unique_id=1590835176]
+position = Vector2(32, -16)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Level/Platform" unique_id=1658216943]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -4.0
+offset_right = 40.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platform" unique_id=927032533]
+shape = SubResource("RectangleShape2D_r58ir")
+
+[node name="Platform2" type="StaticBody2D" parent="Level" unique_id=1499907897]
+position = Vector2(-80, -56)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Level/Platform2" unique_id=1841406663]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -4.0
+offset_right = 40.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platform2" unique_id=980817752]
+shape = SubResource("RectangleShape2D_r58ir")
+
+[node name="Apple" parent="Level" unique_id=1036866821 instance=ExtResource("4_8ucrx")]
+position = Vector2(32, -32)
+
+[node name="Apple2" parent="Level" unique_id=1181407104 instance=ExtResource("4_8ucrx")]
+position = Vector2(-48, -16)
+
+[node name="Apple3" parent="Level" unique_id=1226228626 instance=ExtResource("4_8ucrx")]
+position = Vector2(-80, -72)
+
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("2_lmjug")]
+position = Vector2(-120, 29)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=113696292]
+position = Vector2(0, -40)
+zoom = Vector2(4, 4)

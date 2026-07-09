@@ -1,31 +1,31 @@
-[gd_scene format=3 uid="uid://t8xseeiyirbd"]
+[gd_scene format=3 uid="uid://dc6i5cubhtiar"]
 
-[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_386oa"]
-[ext_resource type="Script" uid="uid://b5upc414i3ld8" path="res://scripts/level_scene.gd" id="1_c8xsp"]
-[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_a74lg"]
-[ext_resource type="Texture2D" uid="uid://dptebin8ufg4q" path="res://assets/sprites/WaffleHeart.png" id="4_c8xsp"]
+[ext_resource type="Script" uid="uid://b5upc414i3ld8" path="res://scripts/level_scene.gd" id="1_cn1cu"]
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_jt8gb"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_et3ld"]
+[ext_resource type="Texture2D" uid="uid://dptebin8ufg4q" path="res://assets/sprites/WaffleHeart.png" id="4_bkxxh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eohcs"]
-font = ExtResource("2_a74lg")
+font = ExtResource("3_et3ld")
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkwfp"]
-font = ExtResource("2_a74lg")
+font = ExtResource("3_et3ld")
 font_size = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eohcs"]
-atlas = ExtResource("4_c8xsp")
+atlas = ExtResource("4_bkxxh")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m3ut"]
-atlas = ExtResource("4_c8xsp")
+atlas = ExtResource("4_bkxxh")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojpky"]
-atlas = ExtResource("4_c8xsp")
+atlas = ExtResource("4_bkxxh")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lj4f"]
-atlas = ExtResource("4_c8xsp")
+atlas = ExtResource("4_bkxxh")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eohcs"]
@@ -48,8 +48,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="LevelScene" type="Node2D" unique_id=62144802]
-script = ExtResource("1_c8xsp")
+[node name="TimerScene" type="Node2D" unique_id=62144802]
+script = ExtResource("1_cn1cu")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1379282064]
 z_index = -1
@@ -63,7 +63,7 @@ ignore_camera_scroll = true
 z_index = -1
 texture_repeat = 2
 position = Vector2(4, -24)
-texture = ExtResource("1_386oa")
+texture = ExtResource("2_jt8gb")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 30, 20)
@@ -72,13 +72,12 @@ region_rect = Rect2(0, 0, 30, 20)
 zoom = Vector2(4, 4)
 
 [node name="Timer" type="Label" parent="." unique_id=475701696]
-offset_left = -48.0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 56.0
-text = "000"
+offset_left = -30.0
+offset_top = 26.0
+offset_right = 30.0
+offset_bottom = 58.0
+text = "5.00"
 label_settings = SubResource("LabelSettings_eohcs")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Level" type="Label" parent="." unique_id=616354589]
