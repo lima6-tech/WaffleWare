@@ -78,7 +78,7 @@ shape = SubResource("WorldBoundaryShape2D_xpvfh")
 position = Vector2(16, 8)
 
 [node name="PlatformPlayer" parent="Level" unique_id=811194918 instance=ExtResource("3_v5ebm")]
-position = Vector2(-128, 0)
+position = Vector2(-104, 0)
 
 [node name="Platform" type="StaticBody2D" parent="Level" unique_id=1590835176]
 position = Vector2(32, -16)
@@ -128,7 +128,7 @@ shape = SubResource("RectangleShape2D_r58ir")
 position = Vector2(32, -32)
 
 [node name="Apple2" parent="Level" unique_id=1181407104 instance=ExtResource("4_8ucrx")]
-position = Vector2(-48, -16)
+position = Vector2(-48, -8)
 
 [node name="Apple3" parent="Level" unique_id=1226228626 instance=ExtResource("4_8ucrx")]
 position = Vector2(-80, -72)

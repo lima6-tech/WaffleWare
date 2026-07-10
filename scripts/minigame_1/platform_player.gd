@@ -17,19 +17,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("press_left", "press_right")
 	if direction:
 		velocity.x = direction * SPEED
+		animation.flip_h = (direction > 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	animation.flip_h = (direction > 0)
-
 	if not is_on_floor():
-		if velocity.y < 0:
-			animation.play("Jump") 
+		if velocity.y < 0: animation.play("Jump") 
 	else:
 		animation.play("Move") 
-		if velocity.x != 0:
-			animation.speed_scale = 2
-		else:
-			animation.speed_scale = 1
+		animation.speed_scale = 2 if velocity.x != 0 else 1
 
 	move_and_slide()
