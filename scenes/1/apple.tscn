@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ci0omxlglwpgw"]
 
-[ext_resource type="Texture2D" uid="uid://g1evtwj47sda" path="res://assets/sprites/Apple.png" id="1_h071m"]
-[ext_resource type="Script" uid="uid://5165xvxtn3rb" path="res://scripts/minigame_1/apple.gd" id="1_m260f"]
+[ext_resource type="Texture2D" uid="uid://g1evtwj47sda" path="res://assets/sprites/1/Apple.png" id="1_h071m"]
+[ext_resource type="Script" uid="uid://5165xvxtn3rb" path="res://scripts/1/apple.gd" id="1_m260f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1cg4"]
 atlas = ExtResource("1_h071m")

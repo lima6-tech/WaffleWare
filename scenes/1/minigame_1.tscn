@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baqx1eirt654f"]
 
-[ext_resource type="Script" uid="uid://btkjf5sgbbnwp" path="res://scripts/minigame_1/minigame_1.gd" id="1_f1oqe"]
+[ext_resource type="Script" uid="uid://btkjf5sgbbnwp" path="res://scripts/1/minigame_1.gd" id="1_f1oqe"]
 [ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_lmjug"]
 [ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_og05i"]
 [ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="2_lmjug"]

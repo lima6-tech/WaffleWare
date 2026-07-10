@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6po01qq80qhj"
-path="res://.godot/imported/Grid.png-15cce8dda2297c7230652415b59bf857.ctex"
+uid="uid://d0nsa0gsmw2nl"
+path="res://.godot/imported/WaffleButton.png-ba5dab6cef17af1a51b4d64592914c29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Grid.png"
-dest_files=["res://.godot/imported/Grid.png-15cce8dda2297c7230652415b59bf857.ctex"]
+source_file="res://assets/sprites/2/WaffleButton.png"
+dest_files=["res://.godot/imported/WaffleButton.png-ba5dab6cef17af1a51b4d64592914c29.ctex"]
 
 [params]
 
