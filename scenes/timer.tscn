@@ -112,7 +112,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 30.0
 }]
 
 [node name="Timer" type="Node2D" unique_id=350014231]
@@ -127,6 +127,7 @@ text = "3:00"
 label_settings = ExtResource("2_g5y8c")
 vertical_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135366129]
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=2135366129]
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_5lxq6")
+frame_progress = 0.19278367

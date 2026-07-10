@@ -11,12 +11,12 @@ extends Node2D
 @onready var level = $Level
 @onready var timer = $Timer
 
-var time: float = 5.00
+var time: float = 3.00
 var timer_active = true
 var increase_level = false
 
 func _ready() -> void:
-	time = 5.00
+	time = 3.00
 	timer_active = true
 	increase_level = false
 
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 	update_timer(delta)
 
-	if time <= 3.00 and not increase_level:
+	if time <= 1.50 and not increase_level:
 		Global.minigames_done = Global.minigames_done + 1
 		increase_level = true
 
