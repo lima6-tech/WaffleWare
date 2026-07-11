@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://461c8c2a008x"]
+
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_cnwcw"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_lmu8m"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_8rkx7"]
+
+[node name="Minigame_3" type="Node2D" unique_id=842399492]
+
+[node name="Parallax" type="Parallax2D" parent="." unique_id=861768627]
+z_index = -1
+scroll_offset = Vector2(-29, -12)
+repeat_size = Vector2(30, 20)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax" unique_id=1088372270]
+z_index = -1
+texture_repeat = 2
+position = Vector2(4, -24)
+texture = ExtResource("1_cnwcw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 20)
+
+[node name="Screen" type="NinePatchRect" parent="." unique_id=1566484328]
+offset_left = -144.0
+offset_top = -120.0
+offset_right = 136.0
+offset_bottom = 16.0
+texture = ExtResource("2_lmu8m")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("3_8rkx7")]
+position = Vector2(-120, 29)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1293825536]
+position = Vector2(0, -40)
+zoom = Vector2(4, 4)
