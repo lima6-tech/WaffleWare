@@ -1,16 +1,13 @@
 extends Node2D
 
 func _ready() -> void:
-	pass # Replace with function body.
-
-func _process(delta: float) -> void:
-	pass
+	AudioManager.play_music("ittybitty")
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/timer_scene.tscn")
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

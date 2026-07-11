@@ -1,10 +1,29 @@
 [gd_scene format=3 uid="uid://461c8c2a008x"]
 
 [ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_cnwcw"]
+[ext_resource type="Script" uid="uid://cr6hmdqrvvfu" path="res://scripts/3/minigame_3.gd" id="1_d7v3x"]
 [ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_lmu8m"]
 [ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_8rkx7"]
+[ext_resource type="PackedScene" uid="uid://bpk2tjcr7ai0t" path="res://scenes/3/horizontal_player.tscn" id="4_lmu8m"]
+[ext_resource type="PackedScene" uid="uid://nt8l2sd3gk6h" path="res://scenes/3/coconut.tscn" id="5_i1qga"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmu8m"]
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rkx7"]
+normal = Vector2(0.9999354, -0.011362903)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i1qga"]
+normal = Vector2(-1, 0)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7v3x"]
+normal = Vector2(0, 1)
+distance = 16.0
 
 [node name="Minigame_3" type="Node2D" unique_id=842399492]
+script = ExtResource("1_d7v3x")
 
 [node name="Parallax" type="Parallax2D" parent="." unique_id=861768627]
 z_index = -1
@@ -23,7 +42,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 30, 20)
 
-[node name="Screen" type="NinePatchRect" parent="." unique_id=1566484328]
+[node name="Screen" type="NinePatchRect" parent="." unique_id=1136114004]
 offset_left = -144.0
 offset_top = -120.0
 offset_right = 136.0
@@ -33,6 +52,32 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+
+[node name="Boundaries" type="StaticBody2D" parent="Screen" unique_id=659708178]
+position = Vector2(144, -14)
+
+[node name="Bottom" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=923910738]
+position = Vector2(0, 139)
+shape = SubResource("WorldBoundaryShape2D_lmu8m")
+
+[node name="Left" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1728516163]
+position = Vector2(-134, 86)
+shape = SubResource("WorldBoundaryShape2D_8rkx7")
+
+[node name="Right" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=67076926]
+position = Vector2(126, 86)
+shape = SubResource("WorldBoundaryShape2D_i1qga")
+
+[node name="Top" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1449656541]
+shape = SubResource("WorldBoundaryShape2D_d7v3x")
+
+[node name="Level" type="Node2D" parent="." unique_id=1556041771]
+
+[node name="HorizontalPlayer" parent="Level" unique_id=811194918 instance=ExtResource("4_lmu8m")]
+position = Vector2(0, 8)
+
+[node name="Coconut" parent="Level" unique_id=2116075811 instance=ExtResource("5_i1qga")]
+position = Vector2(72, -96)
 
 [node name="Timer" parent="." unique_id=350014231 instance=ExtResource("3_8rkx7")]
 position = Vector2(-120, 29)

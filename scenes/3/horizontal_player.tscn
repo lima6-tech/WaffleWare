@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bpk2tjcr7ai0t"]
+
+[ext_resource type="Script" uid="uid://cn0etu3tvcsbk" path="res://scripts/3/horizontal_player.gd" id="1_foq83"]
+[ext_resource type="Texture2D" uid="uid://co00y6cl8j68m" path="res://assets/sprites/3/Crab.png" id="2_foq83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foq83"]
+atlas = ExtResource("2_foq83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvxxr"]
+atlas = ExtResource("2_foq83")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cq6g"]
+atlas = ExtResource("2_foq83")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm22s"]
+atlas = ExtResource("2_foq83")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8a6cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foq83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvxxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm22s")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foq83"]
+size = Vector2(32, 16)
+
+[node name="HorizontalPlayer" type="CharacterBody2D" unique_id=811194918 groups=["player"]]
+script = ExtResource("1_foq83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=785911073]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_8a6cd")
+animation = &"Move"
+frame_progress = 0.9874867
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559597800]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_foq83")

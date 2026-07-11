@@ -35,10 +35,10 @@ func _process(delta: float) -> void:
 		increase_level = true
 
 	if not timer_active:
-		if Global.minigames_done < 3:
+		if Global.minigames_done <= 3:
 			get_tree().change_scene_to_file("res://scenes/" + str(Global.minigames_done) + "/minigame_" + str(Global.minigames_done) + ".tscn") 
 		else:
-			get_tree().change_scene_to_file("res://scenes/title_screen.tscn") 
+			get_tree().change_scene_to_file("res://scenes/done_scene.tscn")
 
 func update_timer(delta: float):
 	if timer_active and time > 0.0:

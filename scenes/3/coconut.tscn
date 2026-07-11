@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://nt8l2sd3gk6h"]
+
+[ext_resource type="Texture2D" uid="uid://btjt4kdv4dd52" path="res://assets/sprites/3/Coconut.png" id="1_f20d2"]
+[ext_resource type="Script" uid="uid://3fxurqktghqx" path="res://scripts/3/coconut.gd" id="2_dubnf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7v3x"]
+radius = 8.0
+
+[node name="Coconut" type="Sprite2D" unique_id=2116075811]
+texture = ExtResource("1_f20d2")
+script = ExtResource("2_dubnf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=469991574]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=15054831]
+shape = SubResource("CircleShape2D_d7v3x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

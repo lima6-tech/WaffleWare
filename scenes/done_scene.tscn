@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://bj0nhb7wjdl3q"]
+
+[ext_resource type="Script" uid="uid://dbgmo8ftq4q5s" path="res://scripts/done_screen.gd" id="1_wjpvw"]
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_bgnpx"]
+[ext_resource type="Texture2D" uid="uid://dvouoihf5ljdm" path="res://assets/sprites/Panel.png" id="3_2vc80"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_wc7ap"]
+[ext_resource type="Texture2D" uid="uid://cxcfn3npc7o68" path="res://assets/sprites/WaffleBig.png" id="5_u71bl"]
+[ext_resource type="Texture2D" uid="uid://cfc2ya1swcq8u" path="res://assets/sprites/Confetti.png" id="6_rkljl"]
+[ext_resource type="Material" uid="uid://c265hb43y1bv0" path="res://settings/Confetti.tres" id="7_jdliq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bq8jb"]
+font = ExtResource("4_wc7ap")
+font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5n7b"]
+atlas = ExtResource("5_u71bl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8xmt"]
+atlas = ExtResource("5_u71bl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rdyk"]
+atlas = ExtResource("5_u71bl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofksa"]
+atlas = ExtResource("5_u71bl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ot34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5n7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8xmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rdyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofksa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DoneScene" type="Node2D" unique_id=855926715]
+script = ExtResource("1_wjpvw")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1146942013]
+z_index = -1
+scroll_offset = Vector2(-29, -12)
+repeat_size = Vector2(30, 20)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D" unique_id=973458394]
+z_index = -1
+texture_repeat = 2
+position = Vector2(4, -24)
+texture = ExtResource("2_bgnpx")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 20)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=861888878]
+offset_left = -136.0
+offset_top = -72.0
+offset_right = 136.0
+offset_bottom = 72.0
+texture = ExtResource("3_2vc80")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Title" type="Label" parent="." unique_id=416980306]
+offset_left = -80.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = -39.0
+text = "You Win!"
+label_settings = SubResource("LabelSettings_bq8jb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1886699270]
+offset_left = -40.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VBox" unique_id=697975514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_wc7ap")
+theme_override_font_sizes/font_size = 8
+text = "restart"
+flat = true
+icon_alignment = 1
+
+[node name="Button3" type="Button" parent="VBox" unique_id=215473678]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_wc7ap")
+theme_override_font_sizes/font_size = 8
+text = "quit"
+flat = true
+icon_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
+zoom = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1649359090]
+position = Vector2(0, 88)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1ot34")
+autoplay = "default"
+frame_progress = 0.49822187
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=167747400]
+amount = 40
+texture = ExtResource("6_rkljl")
+process_material = ExtResource("7_jdliq")
+
+[connection signal="pressed" from="VBox/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBox/Button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBox/Button3" to="." method="_on_quit_pressed"]

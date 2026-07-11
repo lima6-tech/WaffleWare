@@ -12,20 +12,14 @@ func _ready() -> void:
 			var random_x = randf_range(x_range[0], x_range[1])
 			var random_y = randf_range(y_range[0], y_range[1])
 			button.position = Vector2(random_x, random_y)
+			button.waffle_pressed.connect(button_pressed)
 
 	timer.start_timer(3.0) # accessing the timer function
 
 func _process(delta: float) -> void: 
 	if not timer.timer_active:
-		if waffles_pressed == 5:
-			if Global.minigames_done > 3: 
-				get_tree().change_scene_to_file("res://scenes/done_screen.tscn")
-			else:
-				get_tree().change_scene_to_file("res://scenes/timer_scene.tscn") 
-		else:
-			Global.minigames_done -= 1 
-			Global.lives -= 1
-			get_tree().change_scene_to_file("res://scenes/timer_scene.tscn") 
+		var success = (waffles_pressed == 5)
+		Global._finish_minigame(success)
 
 func button_pressed() -> void:
 	waffles_pressed += 1

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://pxkg0o7y463o"]
+
+[ext_resource type="Script" uid="uid://dbgmo8ftq4q5s" path="res://scripts/done_screen.gd" id="1_8w6tn"]
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_c3pwq"]
+[ext_resource type="Texture2D" uid="uid://dvouoihf5ljdm" path="res://assets/sprites/Panel.png" id="3_5jhep"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_wknd0"]
+[ext_resource type="Texture2D" uid="uid://ctfukd08heab2" path="res://assets/sprites/1/Lose.png" id="5_6ve87"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bq8jb"]
+font = ExtResource("4_wknd0")
+font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piuf8"]
+atlas = ExtResource("5_6ve87")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ktmx"]
+atlas = ExtResource("5_6ve87")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jylt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piuf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ktmx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="LoseScreen" type="Node2D" unique_id=855926715]
+script = ExtResource("1_8w6tn")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1146942013]
+z_index = -1
+scroll_offset = Vector2(-29, -12)
+repeat_size = Vector2(30, 20)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D" unique_id=973458394]
+z_index = -1
+texture_repeat = 2
+position = Vector2(4, -24)
+texture = ExtResource("2_c3pwq")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 20)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=861888878]
+offset_left = -136.0
+offset_top = -72.0
+offset_right = 136.0
+offset_bottom = 72.0
+texture = ExtResource("3_5jhep")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Title" type="Label" parent="." unique_id=416980306]
+offset_left = -80.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = -39.0
+text = "Game Over..."
+label_settings = SubResource("LabelSettings_bq8jb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1886699270]
+offset_left = -40.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VBox" unique_id=697975514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_wknd0")
+theme_override_font_sizes/font_size = 8
+text = "restart"
+flat = true
+icon_alignment = 1
+
+[node name="Button3" type="Button" parent="VBox" unique_id=215473678]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_wknd0")
+theme_override_font_sizes/font_size = 8
+text = "quit"
+flat = true
+icon_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
+zoom = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=338053414]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jylt6")
+autoplay = "default"
+frame_progress = 0.10000022
+
+[connection signal="pressed" from="VBox/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBox/Button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBox/Button3" to="." method="_on_quit_pressed"]
