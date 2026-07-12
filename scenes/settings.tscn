@@ -1,14 +1,48 @@
 [gd_scene format=3 uid="uid://bkemmvksqq3au"]
 
+[ext_resource type="Script" uid="uid://ny0n7qymk86l" path="res://scripts/settings.gd" id="1_4ppmf"]
 [ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_gis3k"]
 [ext_resource type="Texture2D" uid="uid://dvouoihf5ljdm" path="res://assets/sprites/Panel.png" id="3_83j8s"]
+[ext_resource type="Texture2D" uid="uid://ifctpf3futwg" path="res://assets/sprites/Settings/v_slidder_grabber.png" id="4_gis3k"]
 [ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_gjs24"]
+[ext_resource type="Texture2D" uid="uid://dquuq7co85x4b" path="res://assets/sprites/Settings/v_slidder_grabber_hover.png" id="5_83j8s"]
+[ext_resource type="Texture2D" uid="uid://cnpxcjlk1afkp" path="res://assets/sprites/Settings/v_slidder_grabber_disabled.png" id="6_gjs24"]
+[ext_resource type="Texture2D" uid="uid://dgjgvofrwefjw" path="res://assets/sprites/Settings/nine_path_bg_2.png" id="7_83j8s"]
+[ext_resource type="Texture2D" uid="uid://b5y4b0t3q3byt" path="res://assets/sprites/Settings/slider_progress.png" id="8_gjs24"]
+[ext_resource type="Texture2D" uid="uid://bjhhdvququ7p7" path="res://assets/sprites/Settings/slider_progress_hover.png" id="9_am25x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_am25x"]
+texture = ExtResource("7_83j8s")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ppmf"]
+texture = ExtResource("8_gjs24")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhhto"]
+texture = ExtResource("9_am25x")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_am25x"]
+font = ExtResource("4_gjs24")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bq8jb"]
 font = ExtResource("4_gjs24")
 font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
 
 [node name="Settings" type="Node2D" unique_id=855926715]
+script = ExtResource("1_4ppmf")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1146942013]
 z_index = -1
@@ -39,24 +73,79 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Title" type="Label" parent="." unique_id=416980306]
-offset_left = -80.0
-offset_top = -55.0
-offset_right = 80.0
-offset_bottom = -39.0
-text = "Settings"
-label_settings = SubResource("LabelSettings_bq8jb")
-horizontal_alignment = 1
+[node name="Settings" type="Control" parent="." unique_id=1169344624]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Music" type="HSlider" parent="Settings" unique_id=1712009902]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -23.0
+offset_right = 104.0
+offset_bottom = -7.0
+theme_override_constants/tick_offset = 8
+theme_override_icons/grabber = ExtResource("4_gis3k")
+theme_override_icons/grabber_highlight = ExtResource("5_83j8s")
+theme_override_icons/grabber_disabled = ExtResource("6_gjs24")
+theme_override_styles/slider = SubResource("StyleBoxTexture_am25x")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4ppmf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_uhhto")
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Settings/Music" unique_id=1835981850]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 112.0
+offset_bottom = 16.0
+text = "Music"
+label_settings = SubResource("LabelSettings_am25x")
 vertical_alignment = 1
 
-[node name="VBox" type="VBoxContainer" parent="." unique_id=1886699270]
-offset_left = -40.0
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 56.0
+[node name="SFX" type="HSlider" parent="Settings" unique_id=1685312711]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 104.0
+offset_bottom = 9.0
+theme_override_constants/tick_offset = 8
+theme_override_icons/grabber = ExtResource("4_gis3k")
+theme_override_icons/grabber_highlight = ExtResource("5_83j8s")
+theme_override_icons/grabber_disabled = ExtResource("6_gjs24")
+theme_override_styles/slider = SubResource("StyleBoxTexture_am25x")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4ppmf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_uhhto")
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Settings/SFX" unique_id=1407935866]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 112.0
+offset_bottom = 16.0
+text = "SFX"
+label_settings = SubResource("LabelSettings_am25x")
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Settings" unique_id=1886699270]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 27.0
+offset_right = 68.0
+offset_bottom = 59.0
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="VBox" unique_id=697975514]
+[node name="Button" type="Button" parent="Settings/VBox" unique_id=697975514]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
@@ -68,7 +157,7 @@ text = "back"
 flat = true
 icon_alignment = 1
 
-[node name="Button3" type="Button" parent="VBox" unique_id=215473678]
+[node name="Button2" type="Button" parent="Settings/VBox" unique_id=215473678]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
@@ -80,9 +169,20 @@ text = "quit"
 flat = true
 icon_alignment = 1
 
+[node name="Title" type="Label" parent="." unique_id=416980306]
+offset_left = -80.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = -39.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_bq8jb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
 zoom = Vector2(4, 4)
 
-[connection signal="pressed" from="VBox/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBox/Button" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBox/Button3" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings/VBox/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Settings/VBox/Button" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/VBox/Button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Settings/VBox/Button2" to="." method="_on_quit_pressed"]
