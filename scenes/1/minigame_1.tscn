@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://baqx1eirt654f"]
 
 [ext_resource type="Script" uid="uid://btkjf5sgbbnwp" path="res://scripts/1/minigame_1.gd" id="1_f1oqe"]
-[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_lmjug"]
 [ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_og05i"]
 [ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="2_lmjug"]
 [ext_resource type="PackedScene" uid="uid://b5pygk6jk3lcv" path="res://scenes/1/platform_player.tscn" id="3_v5ebm"]
 [ext_resource type="PackedScene" uid="uid://ci0omxlglwpgw" path="res://scenes/1/apple.tscn" id="4_8ucrx"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_isat0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fa05o"]
 distance = -8.0
@@ -25,25 +25,14 @@ distance = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r58ir"]
 size = Vector2(80, 8)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3k2mo"]
+font = ExtResource("6_isat0")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Minigame_1" type="Node2D" unique_id=229143102]
 script = ExtResource("1_f1oqe")
-
-[node name="Parallax" type="Parallax2D" parent="." unique_id=1223600384]
-z_index = -1
-scroll_offset = Vector2(-29, -12)
-repeat_size = Vector2(30, 20)
-autoscroll = Vector2(10, 10)
-repeat_times = 12
-ignore_camera_scroll = true
-
-[node name="Pattern" type="Sprite2D" parent="Parallax" unique_id=2039036924]
-z_index = -1
-texture_repeat = 2
-position = Vector2(4, -24)
-texture = ExtResource("1_lmjug")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 20)
 
 [node name="Screen" type="NinePatchRect" parent="." unique_id=1304814779]
 offset_left = -144.0
@@ -139,3 +128,13 @@ position = Vector2(-120, 29)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=113696292]
 position = Vector2(0, -40)
 zoom = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="." unique_id=733721847]
+offset_left = -32.0
+offset_top = -104.0
+offset_right = 32.0
+offset_bottom = -96.0
+text = "collect!"
+label_settings = SubResource("LabelSettings_3k2mo")
+horizontal_alignment = 1
+vertical_alignment = 1

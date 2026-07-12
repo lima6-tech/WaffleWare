@@ -1,32 +1,21 @@
 [gd_scene format=3 uid="uid://875nd116ehem"]
 
-[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_botsb"]
 [ext_resource type="Script" uid="uid://bd3i3abein3lr" path="res://scripts/2/minigame_2.gd" id="1_gl3ga"]
 [ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_0sgra"]
 [ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_aiwmr"]
 [ext_resource type="Texture2D" uid="uid://d0nsa0gsmw2nl" path="res://assets/sprites/2/WaffleButton.png" id="3_kgspb"]
 [ext_resource type="Texture2D" uid="uid://bgvxcnb24jua0" path="res://assets/sprites/2/WaffleButtonPressed.png" id="4_gl3ga"]
 [ext_resource type="Script" uid="uid://dftti7slaml3" path="res://scripts/2/waffle.gd" id="5_kgspb"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_gl3ga"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gl3ga"]
+font = ExtResource("7_gl3ga")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Minigame_2" type="Node2D" unique_id=1359190438]
 script = ExtResource("1_gl3ga")
-
-[node name="Parallax" type="Parallax2D" parent="." unique_id=743632166]
-z_index = -1
-scroll_offset = Vector2(-29, -12)
-repeat_size = Vector2(30, 20)
-autoscroll = Vector2(10, 10)
-repeat_times = 12
-ignore_camera_scroll = true
-
-[node name="Pattern" type="Sprite2D" parent="Parallax" unique_id=329821049]
-z_index = -1
-texture_repeat = 2
-position = Vector2(4, -24)
-texture = ExtResource("1_botsb")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 20)
 
 [node name="Screen" type="NinePatchRect" parent="." unique_id=1227720978]
 offset_left = -144.0
@@ -90,6 +79,16 @@ position = Vector2(-120, 29)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=156935178]
 position = Vector2(0, -40)
 zoom = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="." unique_id=1274781352]
+offset_left = -32.0
+offset_top = -104.0
+offset_right = 32.0
+offset_bottom = -96.0
+text = "click!"
+label_settings = SubResource("LabelSettings_gl3ga")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Buttons/Waffle1" to="Buttons/Waffle1" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Waffle2" to="Buttons/Waffle2" method="_on_pressed"]

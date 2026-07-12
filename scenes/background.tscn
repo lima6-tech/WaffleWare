@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dsqfl8tiyj53r"]
+
+[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_bkp1e"]
+
+[node name="Background" type="Node2D" unique_id=866303291]
+z_index = -1
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1642383462]
+z_index = -1
+scroll_offset = Vector2(-29, -12)
+repeat_size = Vector2(30, 20)
+autoscroll = Vector2(10, 10)
+repeat_times = 12
+ignore_camera_scroll = true
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D" unique_id=1544735400]
+z_index = -1
+texture_repeat = 2
+position = Vector2(4, -24)
+texture = ExtResource("1_bkp1e")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 20)

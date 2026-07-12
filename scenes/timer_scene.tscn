@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dc6i5cubhtiar"]
 
 [ext_resource type="Script" uid="uid://b5upc414i3ld8" path="res://scripts/timer_scene.gd" id="1_cn1cu"]
-[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="2_jt8gb"]
 [ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_et3ld"]
 [ext_resource type="Texture2D" uid="uid://dptebin8ufg4q" path="res://assets/sprites/WaffleHeart.png" id="4_bkxxh"]
 
@@ -50,23 +49,6 @@ animations = [{
 
 [node name="TimerScene" type="Node2D" unique_id=62144802]
 script = ExtResource("1_cn1cu")
-
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1379282064]
-z_index = -1
-scroll_offset = Vector2(-29, -12)
-repeat_size = Vector2(30, 20)
-autoscroll = Vector2(10, 10)
-repeat_times = 12
-ignore_camera_scroll = true
-
-[node name="Pattern" type="Sprite2D" parent="Parallax2D" unique_id=2043477161]
-z_index = -1
-texture_repeat = 2
-position = Vector2(4, -24)
-texture = ExtResource("2_jt8gb")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 20)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=137993442]
 zoom = Vector2(4, 4)

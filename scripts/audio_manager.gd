@@ -5,6 +5,9 @@ var sounds: Dictionary = {
 	"click": preload("res://assets/sounds/click.wav"),
 	"score": preload("res://assets/sounds/score.wav"),
 	"success": preload("res://assets/sounds/success.wav"),
+	"beep1": preload("res://assets/sounds/beep1.wav"),
+	"jump": preload("res://assets/sounds/jump.wav"),
+	"lose": preload("res://assets/sounds/lose.wav"),
 
 	"spring": preload("res://assets/music/Spring.mp3"),
 	"ittybitty": preload("res://assets/music/IttyBitty.wav")

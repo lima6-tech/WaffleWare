@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 		time -= delta
 		timer.text = str(snapped(time, 0.01)) # rounds the number
 
-		if time <= 0.0:
-			time = 0.0
-			timer_active = false
+	if time <= 0.0:
+		time = 0.0
+		await get_tree().create_timer(0.5).timeout
+		timer_active = false

@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://c1co70mwgs72h"
 
 Global="*uid://covhqvm3jygyg"
 AudioManager="*uid://dipu384k0lsa1"
+Background="*uid://dsqfl8tiyj53r"
 
 [display]
 

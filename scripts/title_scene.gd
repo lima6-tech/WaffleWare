@@ -1,4 +1,5 @@
 extends Node2D
+@onready var background: PackedScene = preload("res://scenes/background.tscn")
 
 func _ready() -> void:
 	AudioManager.play_music("ittybitty")

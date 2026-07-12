@@ -15,11 +15,13 @@ func _ready():
 	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
 
 func _on_music_value_changed(value: float):
-	# Convert 0.0-1.0 into decibels and apply it to the Music bus
+	# Convert 0.0-1.0 into decibels and apply it
+	AudioManager.play_sfx("beep1", 5.0)
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 
 func _on_sfx_value_changed(value: float):
-	# Convert 0.0-1.0 into decibels and apply it to the SFX bus
+	# Convert 0.0-1.0 into decibels and apply it
+	AudioManager.play_sfx("beep1", 5.0)
 	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
 
 func _on_back_pressed() -> void:

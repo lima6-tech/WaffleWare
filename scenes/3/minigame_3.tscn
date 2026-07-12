@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://461c8c2a008x"]
 
-[ext_resource type="Texture2D" uid="uid://c06kbtvan16rw" path="res://assets/sprites/BG.png" id="1_cnwcw"]
 [ext_resource type="Script" uid="uid://cr6hmdqrvvfu" path="res://scripts/3/minigame_3.gd" id="1_d7v3x"]
 [ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_lmu8m"]
 [ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_8rkx7"]
 [ext_resource type="PackedScene" uid="uid://bpk2tjcr7ai0t" path="res://scenes/3/horizontal_player.tscn" id="4_lmu8m"]
 [ext_resource type="PackedScene" uid="uid://nt8l2sd3gk6h" path="res://scenes/3/coconut.tscn" id="5_i1qga"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_i1qga"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmu8m"]
 distance = -8.0
@@ -22,25 +22,14 @@ distance = -8.0
 normal = Vector2(0, 1)
 distance = 16.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_i1qga"]
+font = ExtResource("6_i1qga")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Minigame_3" type="Node2D" unique_id=842399492]
 script = ExtResource("1_d7v3x")
-
-[node name="Parallax" type="Parallax2D" parent="." unique_id=861768627]
-z_index = -1
-scroll_offset = Vector2(-29, -12)
-repeat_size = Vector2(30, 20)
-autoscroll = Vector2(10, 10)
-repeat_times = 12
-ignore_camera_scroll = true
-
-[node name="Pattern" type="Sprite2D" parent="Parallax" unique_id=1088372270]
-z_index = -1
-texture_repeat = 2
-position = Vector2(4, -24)
-texture = ExtResource("1_cnwcw")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 20)
 
 [node name="Screen" type="NinePatchRect" parent="." unique_id=1136114004]
 offset_left = -144.0
@@ -85,3 +74,13 @@ position = Vector2(-120, 29)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1293825536]
 position = Vector2(0, -40)
 zoom = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="." unique_id=1449897489]
+offset_left = -32.0
+offset_top = -104.0
+offset_right = 32.0
+offset_bottom = -96.0
+text = "catch!"
+label_settings = SubResource("LabelSettings_i1qga")
+horizontal_alignment = 1
+vertical_alignment = 1
