@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5pygk6jk3lcv"]
 
-[ext_resource type="Texture2D" uid="uid://ddvxrqc0qphem" path="res://assets/sprites/1/PlatformPlayer.png" id="1_crq5d"]
+[ext_resource type="Texture2D" uid="uid://cpt12fdameev6" path="res://assets/sprites/1/PlatformPlayer.png" id="1_crq5d"]
 [ext_resource type="Script" uid="uid://duxcc8mh066uo" path="res://scripts/1/platform_player.gd" id="1_qfhli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfhli"]
@@ -60,8 +60,7 @@ script = ExtResource("1_qfhli")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=785911073]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_8a6cd")
-animation = &"Move"
-frame_progress = 0.26284164
+animation = &"Jump"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559597800]

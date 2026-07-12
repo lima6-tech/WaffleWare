@@ -8,6 +8,7 @@ var sounds: Dictionary = {
 	"beep1": preload("res://assets/sounds/beep1.wav"),
 	"jump": preload("res://assets/sounds/jump.wav"),
 	"lose": preload("res://assets/sounds/lose.wav"),
+	"alert": preload("res://assets/sounds/alert.wav"),
 
 	"spring": preload("res://assets/music/Spring.mp3"),
 	"ittybitty": preload("res://assets/music/IttyBitty.wav")
