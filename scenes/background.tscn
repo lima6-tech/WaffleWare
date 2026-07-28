@@ -7,7 +7,6 @@ z_index = -1
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1642383462]
 z_index = -1
-scroll_offset = Vector2(-29, -12)
 repeat_size = Vector2(30, 20)
 autoscroll = Vector2(10, 10)
 repeat_times = 12
