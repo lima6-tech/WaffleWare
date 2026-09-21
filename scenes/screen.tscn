@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cg2xi6gfg0aer"]
+
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_67gow"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="2_xi3nd"]
+
+[node name="Screen" type="NinePatchRect" unique_id=425531017]
+offset_left = -144.0
+offset_top = -120.0
+offset_right = 136.0
+offset_bottom = 16.0
+texture = ExtResource("1_67gow")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1291943453]
+position = Vector2(144, 80)
+zoom = Vector2(4, 4)
+
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("2_xi3nd")]
+position = Vector2(24, 149)

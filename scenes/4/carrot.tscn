@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://tb4k5uok2nwd"]
+
+[ext_resource type="Script" uid="uid://3x8egl8dkumn" path="res://scripts/4/carrot.gd" id="1_jt48l"]
+[ext_resource type="Texture2D" uid="uid://ckx6h4mehoh6f" path="res://assets/sprites/Carrot.png" id="2_ehk2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnpm"]
+atlas = ExtResource("2_ehk2n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1digs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnpm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxfl2"]
+size = Vector2(12, 31)
+
+[node name="Carrot" type="Node2D" unique_id=1036866821 groups=["apples"]]
+script = ExtResource("1_jt48l")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=38529829]
+position = Vector2(-2.3841858e-07, -16)
+sprite_frames = SubResource("SpriteFrames_1digs")
+autoplay = "default"
+
+[node name="Area" type="Area2D" parent="." unique_id=1308624471]
+position = Vector2(0, -16)
+
+[node name="Area" type="CollisionShape2D" parent="Area" unique_id=1462011703]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_oxfl2")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
