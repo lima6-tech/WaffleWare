@@ -29,7 +29,7 @@ offset_right = 137.0
 offset_bottom = 13.0
 
 [node name="PlatformPlayer" parent="Level" unique_id=811194918 instance=ExtResource("4_jcvu7")]
-position = Vector2(137, 125)
+position = Vector2(137, 117)
 
 [node name="Spawn_timer" type="Timer" parent="Level" unique_id=1267143058]
 wait_time = 0.5

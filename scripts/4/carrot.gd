@@ -1,7 +1,7 @@
 extends Node2D
 
 var speed: float = 100.0
-var accel: float = 2.0
+var accel: float = 1.0
 
 @onready var area_2d: Area2D = $Area
 
@@ -22,6 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_can_move = false
 		_is_hit = true
-		body.can_move = false
+		body.get_hit()
 
 		queue_free()

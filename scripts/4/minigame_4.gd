@@ -10,7 +10,7 @@ var carrot_scene = preload("res://scenes/4/carrot.tscn")
 var collected = false
 
 func _ready() -> void:
-	spawn_timer.wait_time = 0.3
+	spawn_timer.wait_time = 0.5
 	spawn_timer.autostart = true
 	spawn_timer.timeout.connect(_on_timer_timeout)
 
@@ -18,13 +18,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void: 
 	if not timer.timer_active:
-		var success = not player.can_move
+		var success = not player.ouch
+		print(success)
 		Global._finish_minigame(success)
 
 func _on_timer_timeout() -> void:
 	var carrot_instance = carrot_scene.instantiate()
 
 	var random_x = randi_range(1, 10) * 24
-	carrot_instance.position = Vector2(random_x, 0)
+	carrot_instance.position = Vector2(random_x, -20)
 
 	level.add_child(carrot_instance)
