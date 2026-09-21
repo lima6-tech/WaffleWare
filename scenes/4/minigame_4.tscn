@@ -1,25 +1,10 @@
 [gd_scene format=3 uid="uid://d2x1b322jur3c"]
 
 [ext_resource type="Script" uid="uid://btmstghaeoihk" path="res://scripts/4/minigame_4.gd" id="1_uhtyt"]
-[ext_resource type="PackedScene" uid="uid://cg2xi6gfg0aer" path="res://scenes/screen.tscn" id="3_pmrv7"]
+[ext_resource type="PackedScene" uid="uid://cg2xi6gfg0aer" path="res://scenes/screen.tscn" id="2_dcvap"]
 [ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_07qy1"]
 [ext_resource type="PackedScene" uid="uid://b5pygk6jk3lcv" path="res://scenes/1/platform_player.tscn" id="4_jcvu7"]
-[ext_resource type="PackedScene" uid="uid://tb4k5uok2nwd" path="res://scenes/4/carrot.tscn" id="5_uhtyt"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmu8m"]
-distance = -8.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rkx7"]
-normal = Vector2(0.9999354, -0.011362903)
-distance = -8.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i1qga"]
-normal = Vector2(-1, 0)
-distance = -8.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7v3x"]
-normal = Vector2(0, 1)
-distance = 16.0
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="6_dcvap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1qga"]
 font = ExtResource("4_07qy1")
@@ -30,45 +15,41 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Minigame_4" type="Node2D" unique_id=842399492]
 script = ExtResource("1_uhtyt")
 
-[node name="Screen" parent="." unique_id=425531017 instance=ExtResource("3_pmrv7")]
+[node name="Screen" parent="." unique_id=1043572106 instance=ExtResource("2_dcvap")]
+offset_left = -140.0
+offset_right = 140.0
 
-[node name="Boundaries" type="StaticBody2D" parent="Screen" unique_id=659708178]
-position = Vector2(144, -14)
+[node name="Level" type="Control" parent="." unique_id=1706276208]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -137.0
+offset_top = -117.0
+offset_right = 137.0
+offset_bottom = 13.0
 
-[node name="Bottom" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=923910738]
-position = Vector2(0, 139)
-shape = SubResource("WorldBoundaryShape2D_lmu8m")
+[node name="PlatformPlayer" parent="Level" unique_id=811194918 instance=ExtResource("4_jcvu7")]
+position = Vector2(137, 125)
 
-[node name="Left" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1728516163]
-position = Vector2(-134, 86)
-shape = SubResource("WorldBoundaryShape2D_8rkx7")
+[node name="Spawn_timer" type="Timer" parent="Level" unique_id=1267143058]
+wait_time = 0.5
+autostart = true
 
-[node name="Right" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=67076926]
-position = Vector2(126, 86)
-shape = SubResource("WorldBoundaryShape2D_i1qga")
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("6_dcvap")]
+position = Vector2(-117, 27)
 
-[node name="Top" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1449656541]
-shape = SubResource("WorldBoundaryShape2D_d7v3x")
-
-[node name="Label" type="Label" parent="Screen" unique_id=1449897489]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 16.0
-offset_right = 176.0
-offset_bottom = 24.0
+[node name="Label" type="Label" parent="." unique_id=1449897489]
+offset_left = -32.0
+offset_top = -104.0
+offset_right = 32.0
+offset_bottom = -96.0
 text = "dodge!"
 label_settings = SubResource("LabelSettings_i1qga")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="Node2D" parent="." unique_id=1556041771]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1397604769]
+position = Vector2(0, -40)
+zoom = Vector2(4, 4)
 
-[node name="PlatformPlayer" parent="Level" unique_id=811194918 instance=ExtResource("4_jcvu7")]
-position = Vector2(0, 8)
-
-[node name="Cupcake" parent="Level" unique_id=1036866821 instance=ExtResource("5_uhtyt")]
-position = Vector2(-32, -24)
-
-[node name="Spawn_timer" type="Timer" parent="." unique_id=1267143058]
-wait_time = 0.5
-autostart = true
+[connection signal="timeout" from="Level/Spawn_timer" to="." method="_on_timer_timeout"]

@@ -1,22 +1,40 @@
 [gd_scene format=3 uid="uid://cg2xi6gfg0aer"]
 
-[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_67gow"]
-[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="2_xi3nd"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="1_lwx6e"]
 
-[node name="Screen" type="NinePatchRect" unique_id=425531017]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmu8m"]
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rkx7"]
+normal = Vector2(0.9999354, -0.011362903)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i1qga"]
+normal = Vector2(-1, 0)
+distance = -8.0
+
+[node name="Screen" type="NinePatchRect" unique_id=1043572106]
 offset_left = -144.0
 offset_top = -120.0
 offset_right = 136.0
 offset_bottom = 16.0
-texture = ExtResource("1_67gow")
+texture = ExtResource("1_lwx6e")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1291943453]
-position = Vector2(144, 80)
-zoom = Vector2(4, 4)
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=236089038]
+position = Vector2(3.0800018, 2.9919968)
 
-[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("2_xi3nd")]
-position = Vector2(24, 149)
+[node name="Bottom" type="CollisionShape2D" parent="Boundaries" unique_id=1510385149]
+position = Vector2(140.92, 123.008)
+shape = SubResource("WorldBoundaryShape2D_lmu8m")
+
+[node name="Left" type="CollisionShape2D" parent="Boundaries" unique_id=143453353]
+position = Vector2(7, 77)
+shape = SubResource("WorldBoundaryShape2D_8rkx7")
+
+[node name="Right" type="CollisionShape2D" parent="Boundaries" unique_id=472683970]
+position = Vector2(267, 77)
+shape = SubResource("WorldBoundaryShape2D_i1qga")

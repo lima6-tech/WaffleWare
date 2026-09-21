@@ -34,7 +34,7 @@ animations = [{
 [node name="LoseScreen" type="Node2D" unique_id=855926715]
 script = ExtResource("1_8w6tn")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=861888878]
+[node name="Panel" type="NinePatchRect" parent="." unique_id=861888878]
 offset_left = -136.0
 offset_top = -72.0
 offset_right = 136.0
@@ -90,7 +90,7 @@ icon_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
 zoom = Vector2(4, 4)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=338053414]
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=338053414]
 position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jylt6")

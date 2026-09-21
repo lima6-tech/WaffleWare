@@ -1,20 +1,30 @@
 extends Node2D
 
-@onready var timer: Node2D = $Timer 
-@onready var spawn_timer = $Spawn_timer 
-@onready var carrot: Sprite2D = $Level/Cupcake
-@onready var player: = $Level/PlatformPlayer
+@onready var timer: Node2D = $Timer
+@onready var player = $Level/PlatformPlayer
+@onready var level = $Level
+
+@onready var spawn_timer = $Level/Spawn_timer 
+var carrot_scene = preload("res://scenes/4/carrot.tscn")
 
 var collected = false
 
 func _ready() -> void:
-	var random_x = [-1, 1].pick_random() * 72
-	carrot.position = Vector2(random_x, -96)
-	player.position.x = carrot.position.x
+	spawn_timer.wait_time = 0.3
+	spawn_timer.autostart = true
+	spawn_timer.timeout.connect(_on_timer_timeout)
 
-	timer.start_timer(3.0) # accessing the timer function
+	timer.start_timer(5.0)
 
 func _process(delta: float) -> void: 
 	if not timer.timer_active:
-		var success = not carrot.hit
-		Global._finish_minigame(false)
+		var success = not player.can_move
+		Global._finish_minigame(success)
+
+func _on_timer_timeout() -> void:
+	var carrot_instance = carrot_scene.instantiate()
+
+	var random_x = randi_range(1, 10) * 24
+	carrot_instance.position = Vector2(random_x, 0)
+
+	level.add_child(carrot_instance)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
+var can_move = true
+
 @onready var animation = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration
 	var direction := Input.get_axis("press_left", "press_right")
-	if direction:
+	if direction and can_move:
 		velocity.x = direction * SPEED
 		animation.flip_h = (direction > 0)
 	else:
