@@ -2,7 +2,9 @@ extends Sprite2D
 
 @onready var area_2d: Area2D = $Area2D
 
-const SPEED = 100
+var speed: float = 100.0
+var accel: float = 1.0
+
 var bottom = 16
 var can_collect = false
 var collected = false
@@ -20,7 +22,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _process(delta: float) -> void: 
 	if can_collect:
-		position.y += SPEED * delta
+		position.y += speed * delta
+		speed *= 1 + (accel / 100)
 
 	if position.y > 16:
 		can_collect = false

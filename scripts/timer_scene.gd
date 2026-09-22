@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 func update_timer(delta: float):
 	if timer_active and time > 0.0:
 		time -= delta
+		time = max(time, 0)
 		timer.text = str(snapped(time, 0.01)) # rounds the number
 
 	elif time <= 0.0:

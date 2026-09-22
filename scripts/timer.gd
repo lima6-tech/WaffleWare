@@ -16,8 +16,11 @@ func start_timer(start_time: float) -> void:
 
 func _process(delta: float) -> void:
 	if timer_active and time > 0.0:
+		print(time)
+		
 		time -= delta
 		tick += delta
+		time = max(time, 0)
 		timer.text = str(snapped(time, 0.01)) # rounds the number
 
 		if tick >= 0.1:
