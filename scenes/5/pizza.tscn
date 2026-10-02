@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ccjwol7pplj7u"]
+
+[ext_resource type="Script" uid="uid://b1vyguutueicq" path="res://scripts/5/pizza.gd" id="1_j1q1f"]
+[ext_resource type="Texture2D" uid="uid://jdcpqyiw5322" path="res://assets/sprites/5/Pizza.png" id="1_nyd77"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elgus"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyd77"]
+size = Vector2(18, 10)
+
+[node name="Pizza" type="Sprite2D" unique_id=500685385]
+texture = ExtResource("1_nyd77")
+script = ExtResource("1_j1q1f")
+
+[node name="Area" type="Area2D" parent="." unique_id=1537147501]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1341826896]
+shape = SubResource("CircleShape2D_elgus")
+
+[node name="Target" type="Area2D" parent="." unique_id=377506863]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=2042280959]
+position = Vector2(10.999999, -22.999998)
+rotation = 0.3926991
+shape = SubResource("RectangleShape2D_nyd77")
+
+[connection signal="area_shape_entered" from="Area" to="." method="_on_area_area_shape_entered"]
+[connection signal="area_shape_entered" from="Target" to="." method="_on_target_area_shape_entered"]

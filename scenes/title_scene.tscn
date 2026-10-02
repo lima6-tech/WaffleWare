@@ -9,6 +9,9 @@
 font = ExtResource("2_l8sac")
 font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8sac"]
+draw_center = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5n7b"]
 atlas = ExtResource("5_bq8jb")
 region = Rect2(0, 0, 64, 64)
@@ -80,11 +83,13 @@ theme_override_constants/separation = 0
 [node name="Button" type="Button" parent="VBox" unique_id=697975514]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
 theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
 theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("2_l8sac")
 theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_l8sac")
 text = "start"
 flat = true
 icon_alignment = 1

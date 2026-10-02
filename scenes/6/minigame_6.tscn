@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bd80l53dvjqsu"]
+
+[ext_resource type="Script" uid="uid://fdbq5vcdpnl7" path="res://scripts/6/minigame_6.gd" id="1_0k6ei"]
+[ext_resource type="PackedScene" uid="uid://cg2xi6gfg0aer" path="res://scenes/screen.tscn" id="2_0k6ei"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_t3r5o"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_tggcd"]
+[ext_resource type="PackedScene" uid="uid://cl878mknsddso" path="res://scenes/6/bar.tscn" id="5_0k6ei"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1qga"]
+font = ExtResource("4_tggcd")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Minigame_6" type="Node2D" unique_id=842399492]
+script = ExtResource("1_0k6ei")
+
+[node name="Screen" parent="." unique_id=1043572106 instance=ExtResource("2_0k6ei")]
+offset_left = -140.0
+offset_right = 140.0
+
+[node name="Level" type="Control" parent="." unique_id=1706276208]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -137.0
+offset_top = -117.0
+offset_right = 137.0
+offset_bottom = 13.0
+
+[node name="Bar" parent="Level" unique_id=1675869595 instance=ExtResource("5_0k6ei")]
+position = Vector2(65, 93)
+
+[node name="finish" type="Timer" parent="Level" unique_id=155034403]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("3_t3r5o")]
+position = Vector2(-117, 27)
+
+[node name="Label" type="Label" parent="." unique_id=1449897489]
+offset_left = -32.0
+offset_top = -104.0
+offset_right = 32.0
+offset_bottom = -96.0
+text = "------"
+label_settings = SubResource("LabelSettings_i1qga")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1397604769]
+position = Vector2(0, -40)
+zoom = Vector2(4, 4)

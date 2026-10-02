@@ -3,7 +3,7 @@ extends Node
 var minigames_done = 0 
 var lives = 3 
 var timer_length = 3.0
-var minigames = 4
+var minigames = 5
 
 func _finish_minigame(Success: bool) -> void:
 	if Success:

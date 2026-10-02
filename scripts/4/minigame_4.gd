@@ -19,7 +19,6 @@ func _ready() -> void:
 func _process(delta: float) -> void: 
 	if not timer.timer_active:
 		var success = not player.ouch
-		print(success)
 		Global._finish_minigame(success)
 
 func _on_timer_timeout() -> void:

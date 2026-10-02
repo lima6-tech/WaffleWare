@@ -16,8 +16,7 @@ func start_timer(start_time: float) -> void:
 
 func _process(delta: float) -> void:
 	if timer_active and time > 0.0:
-		print(time)
-		
+
 		time -= delta
 		tick += delta
 		time = max(time, 0)

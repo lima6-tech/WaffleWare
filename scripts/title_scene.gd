@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	AudioManager.play_music("ittybitty")
+	$VBox/Button.grab_focus()
 
 func _on_start_pressed() -> void:
 	AudioManager.play_sfx("click", 5.0)
