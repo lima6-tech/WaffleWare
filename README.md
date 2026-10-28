@@ -1,8 +1,16 @@
 # WaffleWare
 
-NOTE: do not press quit. This project is built for the embedded Godot project runner so pressing quit will freeze the game. 
+<img width="1013" height="567" alt="TitlePage" src="https://github.com/user-attachments/assets/6fc21360-05d1-4ded-9e21-0a05c638a83f" />
+
+Visit the itch.io page here!: https://lima6.itch.io/waffle-ware
 
 A chaotic, fun-packed minigame collection! Play through a mix of 7 random, wacky, minigames which test your reaction! 
+
+<img width="1013" height="567" alt="Pizza" src="https://github.com/user-attachments/assets/a070516b-d513-45d8-8903-110a587f5e82" />
+
+<img width="1013" height="567" alt="Radish" src="https://github.com/user-attachments/assets/b07fa147-ec85-4c67-94db-232a07483ff6" />
+
+<img width="1013" height="567" alt="Click" src="https://github.com/user-attachments/assets/58b87ca8-0408-4428-91c0-9a904dc41b38" />
 
 # Features:
 
