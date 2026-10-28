@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://461c8c2a008x"]
 
 [ext_resource type="Script" uid="uid://cr6hmdqrvvfu" path="res://scripts/3/minigame_3.gd" id="1_d7v3x"]
-[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_lmu8m"]
-[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/timer.tscn" id="3_8rkx7"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/UI/ScreenPanel.png" id="2_lmu8m"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/general/timer.tscn" id="3_8rkx7"]
 [ext_resource type="PackedScene" uid="uid://bpk2tjcr7ai0t" path="res://scenes/3/horizontal_player.tscn" id="4_lmu8m"]
 [ext_resource type="PackedScene" uid="uid://nt8l2sd3gk6h" path="res://scenes/3/coconut.tscn" id="5_i1qga"]
 [ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_i1qga"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lmu8m"]
-distance = -8.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rkx7"]
-normal = Vector2(0.9999354, -0.011362903)
-distance = -8.0
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i1qga"]
-normal = Vector2(-1, 0)
 distance = -8.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7v3x"]
+normal = Vector2(0.9999354, -0.011362903)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7ujse"]
+normal = Vector2(-1, 0)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eh4a3"]
 normal = Vector2(0, 1)
 distance = 16.0
 
@@ -31,34 +31,36 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Minigame_3" type="Node2D" unique_id=842399492]
 script = ExtResource("1_d7v3x")
 
-[node name="Screen" type="NinePatchRect" parent="." unique_id=1136114004]
-offset_left = -144.0
-offset_top = -120.0
-offset_right = 136.0
-offset_bottom = 16.0
+[node name="Screen" type="NinePatchRect" parent="." unique_id=140227759]
+offset_left = -152.0
+offset_top = -124.0
+offset_right = 152.0
+offset_bottom = 20.0
 texture = ExtResource("2_lmu8m")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+metadata/_edit_group_ = true
 
-[node name="Boundaries" type="StaticBody2D" parent="Screen" unique_id=659708178]
-position = Vector2(144, -14)
+[node name="Boundaries" type="StaticBody2D" parent="Screen" unique_id=1904009063]
+position = Vector2(152, -50)
 
-[node name="Bottom" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=923910738]
-position = Vector2(0, 139)
-shape = SubResource("WorldBoundaryShape2D_lmu8m")
-
-[node name="Left" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1728516163]
-position = Vector2(-134, 86)
-shape = SubResource("WorldBoundaryShape2D_8rkx7")
-
-[node name="Right" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=67076926]
-position = Vector2(126, 86)
+[node name="Bottom" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=595564332]
+position = Vector2(0, 183)
 shape = SubResource("WorldBoundaryShape2D_i1qga")
 
-[node name="Top" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1449656541]
+[node name="Left" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1485355367]
+position = Vector2(-142, 119)
 shape = SubResource("WorldBoundaryShape2D_d7v3x")
+
+[node name="Right" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=1931883061]
+position = Vector2(142, 127)
+shape = SubResource("WorldBoundaryShape2D_7ujse")
+
+[node name="Top" type="CollisionShape2D" parent="Screen/Boundaries" unique_id=129531820]
+position = Vector2(0, 36)
+shape = SubResource("WorldBoundaryShape2D_eh4a3")
 
 [node name="Level" type="Node2D" parent="." unique_id=1556041771]
 
@@ -69,11 +71,11 @@ position = Vector2(0, 8)
 position = Vector2(72, -96)
 
 [node name="Timer" parent="." unique_id=350014231 instance=ExtResource("3_8rkx7")]
-position = Vector2(-120, 29)
+position = Vector2(-112, 48)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1293825536]
 position = Vector2(0, -40)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="." unique_id=1449897489]
 offset_left = -32.0

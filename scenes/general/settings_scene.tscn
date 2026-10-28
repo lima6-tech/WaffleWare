@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://bkemmvksqq3au"]
+
+[ext_resource type="Script" uid="uid://ny0n7qymk86l" path="res://scripts/general/settings.gd" id="1_wharu"]
+[ext_resource type="Texture2D" uid="uid://dvouoihf5ljdm" path="res://assets/sprites/UI/Panel.png" id="2_b8vgp"]
+[ext_resource type="Texture2D" uid="uid://cw0jaus2j8lcv" path="res://assets/sprites/UI/Slider/grabber.png" id="3_mt1k2"]
+[ext_resource type="Texture2D" uid="uid://dr8bv61xodtum" path="res://assets/sprites/UI/Slider/grabber_hover.png" id="4_wmh4l"]
+[ext_resource type="Texture2D" uid="uid://5e1ddk6a45gk" path="res://assets/sprites/UI/Slider/back.png" id="5_ugned"]
+[ext_resource type="Texture2D" uid="uid://dn0k57sixxtp1" path="res://assets/sprites/UI/Slider/fill.png" id="6_h3tas"]
+[ext_resource type="Texture2D" uid="uid://m7b5ufmli8rh" path="res://assets/sprites/UI/Slider/fill_hover.png" id="7_dx3gq"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_wpp57"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_am25x"]
+texture = ExtResource("5_ugned")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ppmf"]
+texture = ExtResource("6_h3tas")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhhto"]
+texture = ExtResource("7_dx3gq")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_am25x"]
+font = ExtResource("8_wpp57")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlosk"]
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_bq8jb"]
+font = ExtResource("8_wpp57")
+font_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+
+[node name="Settings" type="Node2D" unique_id=855926715]
+script = ExtResource("1_wharu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=861888878]
+offset_left = -136.0
+offset_top = -72.0
+offset_right = 136.0
+offset_bottom = 72.0
+texture = ExtResource("2_b8vgp")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Settings" type="Control" parent="." unique_id=1169344624]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Music" type="HSlider" parent="Settings" unique_id=1712009902]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -23.0
+offset_right = 104.0
+offset_bottom = -7.0
+theme_override_icons/grabber = ExtResource("3_mt1k2")
+theme_override_icons/grabber_highlight = ExtResource("4_wmh4l")
+theme_override_styles/slider = SubResource("StyleBoxTexture_am25x")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4ppmf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_uhhto")
+min_value = 0.001
+max_value = 1.0
+step = 0.05
+value = 0.501
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Settings/Music" unique_id=1835981850]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 112.0
+offset_bottom = 16.0
+text = "Music"
+label_settings = SubResource("LabelSettings_am25x")
+vertical_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Settings" unique_id=1729098811]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 104.0
+offset_bottom = 9.0
+theme_override_icons/grabber = ExtResource("3_mt1k2")
+theme_override_icons/grabber_highlight = ExtResource("4_wmh4l")
+theme_override_styles/slider = SubResource("StyleBoxTexture_am25x")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4ppmf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_uhhto")
+min_value = 0.001
+max_value = 1.0
+step = 0.05
+value = 0.501
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Settings/SFX" unique_id=2077081568]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 112.0
+offset_bottom = 16.0
+text = "SFX"
+label_settings = SubResource("LabelSettings_am25x")
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Settings" unique_id=1886699270]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 27.0
+offset_right = 68.0
+offset_bottom = 59.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Settings/VBox" unique_id=1670595271]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_wpp57")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_hlosk")
+text = "back"
+flat = true
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="Settings/VBox" unique_id=1421502607]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_pressed_color = Color(0.26666668, 0.15686275, 0.7372549, 1)
+theme_override_colors/font_hover_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_wpp57")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_hlosk")
+text = "quit"
+flat = true
+icon_alignment = 1
+
+[node name="Title" type="Label" parent="." unique_id=416980306]
+offset_left = -80.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = -39.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_bq8jb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1125030937]
+zoom = Vector2(2, 2)
+
+[connection signal="pressed" from="Settings/VBox/Button" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/VBox/Button2" to="." method="_on_quit_pressed"]

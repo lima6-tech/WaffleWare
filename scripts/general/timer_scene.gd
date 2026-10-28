@@ -1,0 +1,49 @@
+extends Node2D
+
+@onready var waffle_container: HBoxContainer = $WaffleContainer
+
+@onready var waffle_1 = $WaffleContainer/Waffle1/Animation
+@onready var waffle_2 = $WaffleContainer/Waffle2/Animation
+@onready var waffle_3 = $WaffleContainer/Waffle3/Animation
+
+@onready var waffles = [waffle_1, waffle_2, waffle_3]
+
+@onready var level = $Level
+@onready var timer = $Timer
+
+var time: float = 3.00
+var timer_active = true
+var increase_level = false
+
+func _ready() -> void:
+	time = 3.00
+	timer_active = true
+	increase_level = false
+
+	for waffle in range(waffles.size()): # loops through the waffles and sets them visible
+		waffles[waffle].visible = waffle < Global.lives
+
+	waffle_container.visible = Global.lives > 0
+
+func _process(delta: float) -> void: 
+	level.text = "00" + str(Global.minigames_done) 
+
+	update_timer(delta)
+
+	if time <= 1.50 and not increase_level:
+		Global.minigames_done += 1
+		increase_level = true
+
+	if not timer_active:
+		var next_game_id = Global.minigame_pool[Global.minigames_done - 1]
+		get_tree().change_scene_to_file("res://scenes/" + str(next_game_id) + "/minigame_" + str(next_game_id) + ".tscn") 
+
+func update_timer(delta: float):
+	if timer_active and time > 0.0:
+		time -= delta
+		time = max(time, 0)
+		timer.text = str(snapped(time, 0.01)) # rounds the number
+
+	elif time <= 0.0:
+		time = 0.0
+		timer_active = false

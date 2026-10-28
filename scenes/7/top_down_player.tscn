@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://k3wnj4qrchgg"]
+
+[ext_resource type="Script" uid="uid://duxcc8mh066uo" path="res://scripts/7/top_down_player.gd" id="1_wbjn2"]
+[ext_resource type="Texture2D" uid="uid://oyv3io87r4tt" path="res://assets/sprites/1/PlayerFrames.png" id="2_wbjn2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6le5p"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kcg0"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2vbw"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8k1b"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87qdu"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dk42"]
+atlas = ExtResource("2_wbjn2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8a6cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6le5p")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kcg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2vbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8k1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87qdu")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dk42")
+}],
+"loop": true,
+"name": &"Ouch",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbjn2"]
+size = Vector2(12, 12)
+
+[node name="TopDownPlayer" type="CharacterBody2D" unique_id=811194918 groups=["player"]]
+script = ExtResource("1_wbjn2")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=785911073]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_8a6cd")
+animation = &"Move"
+flip_h = true
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1559597800]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_wbjn2")

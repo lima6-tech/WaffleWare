@@ -1,7 +1,7 @@
 extends Sprite2D
 
 var can_press: bool = true
-var end_pos: int = 140
+var end_pos: int = 20
 
 func _ready() -> void:
 	pass

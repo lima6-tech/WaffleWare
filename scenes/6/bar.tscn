@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cl878mknsddso"]
 
 [ext_resource type="Script" uid="uid://co6uupokc8xid" path="res://scripts/6/bar.gd" id="1_ox8tr"]
-[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/ScreenPanel.png" id="2_uflkm"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/UI/ScreenPanel.png" id="2_uflkm"]
 
 [node name="Bar" type="Node2D" unique_id=1675869595]
 script = ExtResource("1_ox8tr")
 
 [node name="Screen" type="NinePatchRect" parent="." unique_id=392347044]
-offset_right = 128.0
+offset_right = 100.0
 offset_bottom = 16.0
 texture = ExtResource("2_uflkm")
 patch_margin_left = 4

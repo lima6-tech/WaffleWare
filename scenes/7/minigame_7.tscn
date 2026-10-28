@@ -1,0 +1,136 @@
+[gd_scene format=4 uid="uid://64xygjpa76p2"]
+
+[ext_resource type="Script" uid="uid://bs70ta0p3gt82" path="res://scripts/7/minigame_7.gd" id="1_cuivk"]
+[ext_resource type="Texture2D" uid="uid://6q37i15aewei" path="res://assets/sprites/UI/ScreenPanel.png" id="2_crtxx"]
+[ext_resource type="PackedScene" uid="uid://ci0omxlglwpgw" path="res://scenes/1/apple.tscn" id="4_eri62"]
+[ext_resource type="PackedScene" uid="uid://b85o6ule5b8py" path="res://scenes/general/timer.tscn" id="5_4qbe0"]
+[ext_resource type="Texture2D" uid="uid://b13ot6ycmeds" path="res://assets/sprites/7/wall.png" id="5_crtxx"]
+[ext_resource type="FontFile" uid="uid://dbimdcxrbgvoo" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_4r60j"]
+[ext_resource type="PackedScene" uid="uid://k3wnj4qrchgg" path="res://scenes/7/top_down_player.tscn" id="6_pkcwk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crtxx"]
+texture = ExtResource("5_crtxx")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_crtxx"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_crtxx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_47x1n"]
+font = ExtResource("6_4r60j")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Minigame_7" type="Node2D" unique_id=229143102]
+script = ExtResource("1_cuivk")
+
+[node name="Screen" type="NinePatchRect" parent="." unique_id=1786927310]
+offset_left = -152.0
+offset_top = -84.0
+offset_right = 152.0
+offset_bottom = 60.0
+texture = ExtResource("2_crtxx")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Level" type="Control" parent="." unique_id=473884561]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -149.0
+offset_top = -82.0
+offset_right = 149.0
+offset_bottom = 57.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Level" unique_id=637486890]
+position = Vector2(-3, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAKAAAAAAABAAIAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAANAAAAAAABAAIAAAAOAAAAAAABAAIAAAAPAAAAAAABAAIAAAAQAAAAAAABAAIAAAARAAAAAAABAAIAAAAAAAgAAAABAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAAAAAADAAgAAAABAAAAAAAEAAgAAAABAAAAAAAFAAgAAAABAAAAAAAGAAgAAAABAAAAAAAHAAgAAAABAAAAAAAIAAgAAAABAAAAAAAJAAgAAAABAAAAAAAKAAgAAAABAAAAAAALAAgAAAABAAAAAAAMAAgAAAABAAAAAAANAAgAAAABAAAAAAAOAAgAAAABAAAAAAAPAAgAAAABAAAAAAAQAAgAAAABAAAAAAARAAgAAAABAAAAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAABAAEAAAAKAP//AAABAAEAAAALAP//AAABAAEAAAAMAP//AAABAAEAAAANAP//AAABAAEAAAAOAP//AAABAAEAAAAPAP//AAABAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAD//wAAAAABAAIAAAASAAAAAAABAAIAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAIAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAIAAAAFAAIAAAABAAAAAAAFAAMAAAABAAIAAAAFAAUAAAABAAAAAAAFAAYAAAABAAIAAAAGAAIAAAABAAAAAAAGAAMAAAABAAIAAAAGAAUAAAABAAAAAAAGAAYAAAABAAIAAAAHAAIAAAABAAAAAAAHAAMAAAABAAIAAAAHAAUAAAABAAAAAAAHAAYAAAABAAIAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAIAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAIAAAALAAIAAAABAAAAAAALAAMAAAABAAIAAAALAAUAAAABAAAAAAALAAYAAAABAAIAAAAMAAIAAAABAAAAAAAMAAMAAAABAAIAAAAMAAUAAAABAAAAAAAMAAYAAAABAAIAAAANAAIAAAABAAAAAAANAAMAAAABAAIAAAANAAUAAAABAAAAAAANAAYAAAABAAIAAAAIAAIAAAACAAAAAAAIAAMAAAACAAIAAAAIAAUAAAACAAAAAAAIAAYAAAACAAIAAAAOAAIAAAACAAAAAAAOAAMAAAACAAIAAAAOAAUAAAACAAAAAAAOAAYAAAACAAIAAAABAAIAAAABAAAAAAABAAMAAAABAAIAAAACAAIAAAACAAAAAAACAAMAAAACAAIAAAAAAAIAAAABAAAAAAAAAAMAAAABAAIAAAAAAAUAAAABAAAAAAAAAAYAAAABAAIAAAABAAUAAAABAAAAAAABAAYAAAABAAIAAAACAAUAAAACAAAAAAACAAYAAAACAAIAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAIAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAIAAAARAAIAAAABAAAAAAARAAMAAAABAAIAAAARAAUAAAABAAAAAAARAAYAAAABAAIAAAASAAIAAAABAAAAAAASAAMAAAABAAIAAAASAAUAAAABAAAAAAASAAYAAAABAAIAAAASAAgAAAABAAAAAAASAP//AAABAAEAAAA=")
+tile_set = SubResource("TileSet_crtxx")
+
+[node name="Apples" type="Node2D" parent="Level" unique_id=695790473]
+
+[node name="Group1" type="Node2D" parent="Level/Apples" unique_id=1829086877]
+
+[node name="Apple" parent="Level/Apples/Group1" unique_id=1036866821 instance=ExtResource("4_eri62")]
+position = Vector2(181, 82)
+
+[node name="Apple2" parent="Level/Apples/Group1" unique_id=802851194 instance=ExtResource("4_eri62")]
+position = Vector2(197, 82)
+
+[node name="Apple3" parent="Level/Apples/Group1" unique_id=565890584 instance=ExtResource("4_eri62")]
+position = Vector2(213, 82)
+
+[node name="Group2" type="Node2D" parent="Level/Apples" unique_id=439087653]
+
+[node name="Apple" parent="Level/Apples/Group2" unique_id=345330161 instance=ExtResource("4_eri62")]
+position = Vector2(53, 50)
+
+[node name="Apple2" parent="Level/Apples/Group2" unique_id=2054702573 instance=ExtResource("4_eri62")]
+position = Vector2(53, 66)
+
+[node name="Group3" type="Node2D" parent="Level/Apples" unique_id=1917045007]
+
+[node name="Apple" parent="Level/Apples/Group3" unique_id=1256560525 instance=ExtResource("4_eri62")]
+position = Vector2(85, 34)
+
+[node name="Apple2" parent="Level/Apples/Group3" unique_id=1748873078 instance=ExtResource("4_eri62")]
+position = Vector2(101, 34)
+
+[node name="Apple3" parent="Level/Apples/Group3" unique_id=1944795849 instance=ExtResource("4_eri62")]
+position = Vector2(117, 34)
+
+[node name="Group4" type="Node2D" parent="Level/Apples" unique_id=795812457]
+
+[node name="Apple" parent="Level/Apples/Group4" unique_id=793782414 instance=ExtResource("4_eri62")]
+position = Vector2(149, 98)
+
+[node name="Apple2" parent="Level/Apples/Group4" unique_id=372734074 instance=ExtResource("4_eri62")]
+position = Vector2(149, 114)
+
+[node name="TopDownPlayer" parent="Level" unique_id=811194918 instance=ExtResource("6_pkcwk")]
+position = Vector2(149, 82)
+
+[node name="Timer" parent="." unique_id=350014231 instance=ExtResource("5_4qbe0")]
+position = Vector2(-112, 88)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1552247528]
+zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="." unique_id=854074032]
+offset_left = -32.0
+offset_top = -72.0
+offset_right = 32.0
+offset_bottom = -64.0
+text = "collect!"
+label_settings = SubResource("LabelSettings_47x1n")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
