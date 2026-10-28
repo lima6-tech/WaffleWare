@@ -2,6 +2,7 @@
 
 <img width="1013" height="567" alt="TitlePage" src="https://github.com/user-attachments/assets/6fc21360-05d1-4ded-9e21-0a05c638a83f" />
 
+
 Visit the itch.io page here!: https://lima6.itch.io/waffle-ware
 
 A chaotic, fun-packed minigame collection! Play through a mix of 7 random, wacky, minigames which test your reaction! 
@@ -26,6 +27,6 @@ A chaotic, fun-packed minigame collection! Play through a mix of 7 random, wacky
 
 # Credits:
 
-Based on the Hackclub WarioWare guide​
-All art hand drawn. 
-Multiple contributors for audio
+- Based on the Hackclub WarioWare guide​
+- All art hand drawn. 
+- Multiple contributors for audio
